@@ -14,6 +14,10 @@ function Bit(game, x, y, key, frame, dir, button) {
 	this.body.collideWorldBounds = false;
 	this.body.gravity.y = 0;
 	this.body.velocity.x = -250;
+	this.scoreText = game.add.text(this.button.body.x + 200, this.body.y);
+	this.scoreText.anchor.x = 0.5;
+	this.scoreText.anchor.y = 0.5;
+	this.isKilled = false;
 
 }
 
@@ -21,7 +25,28 @@ Bit.prototype = Object.create(Phaser.Sprite.prototype);
 Bit.prototype.constructor = Bit;
 
 Bit.prototype.update = function(){
-	if(Math.abs(this.body.x - this.button.body.x) < 50 && this.button.alpha == 1){
-		this.kill();
+	if(this.button.alpha == 1 && !this.isKilled){
+		if(Math.abs(this.body.x - this.button.body.x) < 25){
+			this.killText();
+			this.scoreText.setText("Great");
+			game.time.events.add(Phaser.Timer.SECOND * 2, this.killText, this);
+			this.kill();
+
+		}else if(Math.abs(this.body.x - this.button.body.x) < 50){
+			this.killText();
+			this.scoreText.setText("Good");
+			game.time.events.add(Phaser.Timer.SECOND * 2, this.killText, this);
+			this.kill();
+		}else if(Math.abs(this.body.x - this.button.body.x) < 90){
+			this.killText();
+			this.scoreText.setText("Bad");
+			game.time.events.add(Phaser.Timer.SECOND * 2, this.killText, this);
+			this.kill();
+		}
 	}
+}
+
+Bit.prototype.killText = function(){
+	this.scoreText.setText('',true);
+	this.isKilled = true;
 }

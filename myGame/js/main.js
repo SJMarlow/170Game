@@ -63,10 +63,6 @@ TutorialGameplay.prototype = {
 		
 	},
 	create: function() {
-		text = game.add.text(game.world.centerX, game.world.centerY)
-		text.setText("Tutorial Gameplay");
-		text.anchor.x = 0.5;
-		text.anchor.y = 0.5;
 
 		//Add by Guanchen Liu
 		//Version1
@@ -90,10 +86,10 @@ TutorialGameplay.prototype = {
 		game.add.existing(this.testBit1);
 
 		this.testBit2 = new Bit(game, 1100, 160, 'rightArrow', 1, 'right', this.rightButton);
-		game.add.existing(this.testBit1);
+		game.add.existing(this.testBit2);
 
 		this.testBit3 = new Bit(game, 1500, 250, 'downArrow', 1, 'down', this.downButton);
-		game.add.existing(this.testBit1);
+		game.add.existing(this.testBit3);
 
 
 		game.stage.backgroundColor = "#412312";
