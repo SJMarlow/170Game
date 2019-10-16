@@ -14,7 +14,7 @@ function Bit(game, x, y, key, frame, dir, button) {
 	this.body.collideWorldBounds = false;
 	this.body.gravity.y = 0;
 	this.body.velocity.x = -250;
-
+	game.add.existing(this)
 }
 
 Bit.prototype = Object.create(Phaser.Sprite.prototype);
