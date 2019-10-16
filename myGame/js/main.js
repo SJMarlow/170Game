@@ -98,25 +98,25 @@ TutorialGameplay.prototype = {
 		//
 		//this.testBit3 = new Bit(game, 1500, 250, 'downArrow', 1, 'down', this.downButton);
 		//game.add.existing(this.testBit1);
-	
+		let songBpm = 60;
+		let noteVelocity = 250; // Hardcoded in Bit.js still. Just here for calcs right now.
 		let temp = map.data;
 		let width = map.width; // max # of notes for one lane
 		let height = map.height; // # of lanes
 		let startOffset = 500;
-		for(let i = 0; i<width;i++){
+		let noteDistance = (noteVelocity/(2*((songBpm)/60)));
+		for(let i = 0; i<width;i++){ // lane 1
 			if(temp[i]==1){
-				this.testBit1 = new Bit(game, startOffset+i*100, 70, 'leftArrow', 1, 'left', this.leftButton);
+				this.testBit1 = new Bit(game, startOffset+i*noteDistance, 70, 'leftArrow', 1, 'left', this.leftButton);
 			}
-			if((temp[i+width]) == 1){
-				this.testBit2 = new Bit(game, startOffset+i*100, 160, 'rightArrow', 1, 'right', this.rightButton);
+			if((temp[i+width]) == 1){ // lane 2
+				this.testBit2 = new Bit(game, startOffset+i*noteDistance, 160, 'rightArrow', 1, 'right', this.rightButton);
 			}	
-			if(temp[i+(width*2)] == 1){
-				this.testBit3 = new Bit(game, startOffset+i*100, 250, 'downArrow', 1, 'down', this.downButton);
+			if(temp[i+(width*2)] == 1){ // lane 3
+				this.testBit3 = new Bit(game, startOffset+i*noteDistance, 250, 'downArrow', 1, 'down', this.downButton);
 			}
 			
-		}
-	
-
+		}	
 		game.stage.backgroundColor = "#412312";
 	},
 	update: function() {
@@ -124,6 +124,7 @@ TutorialGameplay.prototype = {
 		//I change the key to process the scene to SPACE key.
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE))
 			game.state.start('StoryScreen2');
+		
 	}
 }
 var StoryScreen2 = function(game) {};
