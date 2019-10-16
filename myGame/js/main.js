@@ -24,6 +24,7 @@ TitleScreen.prototype = {
 		game.load.image('leftArrow', 'assets/img/leftArrow.png');
 		game.load.image('downArrow', 'assets/img/downArrow.png');
 		game.load.image('sheet', 'assets/img/sheet.png');
+		game.load.audio('bgMusic', 'assets/audio/90bpmTutorial.mp3');
 
 		
 	},
@@ -67,6 +68,7 @@ TutorialGameplay.prototype = {
 		//Add by Guanchen Liu
 		//Version1
 		//Adding sheets and button to the scene
+		this.time = 1;
 		this.sheet = game.add.sprite(0,25,'sheet');
 		this.sheet.scale.x = 1.2;
 		this.sheet.scale.y = 0.9;
@@ -82,8 +84,8 @@ TutorialGameplay.prototype = {
 		game.add.existing(this.downButton);
 
 		//Add a test bit for the game
-		this.testBit1 = new Bit(game, 900, 70, 'leftArrow', 1, 'left', this.leftButton);
-		game.add.existing(this.testBit1);
+		// this.testBit1 = new Bit(game, 900, 70, 'leftArrow', 1, 'left', this.leftButton);
+		// game.add.existing(this.testBit1);
 
 		this.testBit2 = new Bit(game, 1100, 160, 'rightArrow', 1, 'right', this.rightButton);
 		game.add.existing(this.testBit2);
@@ -91,15 +93,21 @@ TutorialGameplay.prototype = {
 		this.testBit3 = new Bit(game, 1500, 250, 'downArrow', 1, 'down', this.downButton);
 		game.add.existing(this.testBit3);
 
+		//Add music to the game scene
+		bgMusic = game.add.audio('bgMusic', 1, true);
+		bgMusic.play();
 
 		game.stage.backgroundColor = "#412312";
 	},
 	update: function() {
 		//Change by Guanchen Liu
-		//I change the key to process the scene to SPACE key.
+		//I change the key to process the scene to SPACE key.t
+		this.time++;
+		this.BeatsGenerator(90,this.time);
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE))
 			game.state.start('StoryScreen2');
 	}
+
 }
 var StoryScreen2 = function(game) {};
 StoryScreen2.prototype = {
