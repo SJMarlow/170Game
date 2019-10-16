@@ -19,6 +19,7 @@ function Bit(game, x, y, key, frame, dir, button) {
 	this.scoreText.anchor.y = 0.5;
 	this.isKilled = false;
 
+	game.add.existing(this)
 }
 
 Bit.prototype = Object.create(Phaser.Sprite.prototype);
