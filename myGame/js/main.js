@@ -121,7 +121,7 @@ TutorialGameplay.prototype = {
 		//Change by Guanchen Liu
 		//I change the key to process the scene to SPACE key.t
 		this.time++;
-		this.BeatsGenerator(90,this.time);
+		//this.BeatsGenerator(90,this.time);
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE))
 			game.state.start('StoryScreen2');
 	}
