@@ -4,8 +4,12 @@ var config = {
     renderer: Phaser.AUTO,
     antialias: false,
 }
+var map = []
+$.getJSON('./assets/test.json',function(data){
+	map = data.layers[0]
+});
+
 window.onload = function() {
-	console.log("hi");
 	game = new Phaser.Game(config);
 	game.state.add('Load', Load);
 	game.state.add('TitleScreen', TitleScreen); 
@@ -14,8 +18,5 @@ window.onload = function() {
 	game.state.add('StoryScreen2', StoryScreen2);
 	game.state.add('MainGameplay', MainGameplay);
 	game.state.add('EndScreen', EndScreen);
-
 	game.state.start('Load');
 }
-
-
