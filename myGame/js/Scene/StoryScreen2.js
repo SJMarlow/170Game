@@ -10,10 +10,10 @@ StoryScreen2.prototype = {
 		//text.anchor.y = 0.5;
 		game.stage.backgroundColor = "#F2F91F";
 
-		var portait1 = game.add.sprite(50, 10, 'StoryScene1ImageLeft1');
-		var dialogue1 = game.add.sprite(10, 250, 'StoryScene1TextLeft1');
-		var portait2 = game.add.sprite(520, 100, 'StoryScene1ImageRight1');
-		var dialogue2 = game.add.sprite(420, 340, 'StoryScene1TextRight1');
+		var portait1 = game.add.sprite(50, 10, 'StoryScene2ImageLeft1');
+		var dialogue1 = game.add.sprite(10, 250, 'StoryScene2TextLeft1');
+		var portait2 = game.add.sprite(520, 100, 'StoryScene2ImageRight1');
+		var dialogue2 = game.add.sprite(420, 340, 'StoryScene2TextRight1');
 	},
 	update: function() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
