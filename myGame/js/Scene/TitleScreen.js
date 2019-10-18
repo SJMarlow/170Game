@@ -1,12 +1,12 @@
 var TitleScreen = function(game) {};
 TitleScreen.prototype = {
 	preload: function() {
+
 		game.load.image('rightArrow', 'assets/img/rightArrow.png');
 		game.load.image('leftArrow', 'assets/img/leftArrow.png');
 		game.load.image('downArrow', 'assets/img/downArrow.png');
 		game.load.image('sheet', 'assets/img/sheet.png');
 		game.load.audio('bgMusic', 'assets/audio/90bpmTutorial.mp3');
-
 		
 	},
 	create: function() {

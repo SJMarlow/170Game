@@ -4,7 +4,6 @@ TutorialGameplay.prototype = {
 		
 	},
 	create: function() {
-
 		//Add by Guanchen Liu
 		//Version1
 		//Adding sheets and button to the scene
@@ -62,5 +61,4 @@ TutorialGameplay.prototype = {
 			game.state.start('StoryScreen2');
 		
 	}
-
 }
