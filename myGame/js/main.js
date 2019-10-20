@@ -3,11 +3,30 @@ var config = {
     height: 600,
     renderer: Phaser.AUTO,
     antialias: false,
+	hitsound: false,
+	songNum:0 // Change to 0 or 1.
 }
-var map = []
-$.getJSON('./assets/test.json',function(data){
-	map = data.layers[0]
-});
+// I can clean this up more later on. 
+maps = []
+maps[0] = {
+	song: '120bpmTutorial',
+	songLocation:'./assets/test.json',
+	notes: [],
+	bpm: 120,
+	offset: 227,
+}
+maps[1] = { // I believe that Guanchen found this, so I added it in as well.
+	song: '90bpmTutorial',
+	songLocation: './assets/test2.json', 
+	notes: [],
+	bpm: 180, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
+	offset: 125, // not the most fun thing to find...
+}
+for (let i = 0;i<maps.length;i++){
+	$.getJSON(maps[i].songLocation,function(data){
+		maps[i].notes = data.layers[0]
+	});
+}
 
 window.onload = function() {
 	game = new Phaser.Game(config);
