@@ -27,6 +27,18 @@ Bit.prototype.constructor = Bit;
 
 Bit.prototype.update = function(){
 	if(this.button.alpha == 1 && !this.isKilled){
+		// Only keeping this to test the sync for music better later on/if we decide to have hitsounds later.
+		if(config.hitsound)
+				hitsound.play();
+		// Same goes for the commented-out section below:
+		/*if(Math.abs(this.body.x - this.button.body.x) < 2 && Math.abs(this.body.x - this.button.body.x) > -2){
+			this.killText();
+			
+			console.log(game.time.now)
+			this.scoreText.setText("Perfect");
+			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
+			this.kill();
+		}*/
 		if(Math.abs(this.body.x - this.button.body.x) < 25){
 			this.killText();
 			this.scoreText.setText("Great");
@@ -43,12 +55,12 @@ Bit.prototype.update = function(){
 			this.scoreText.setText("Bad");
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 			this.kill();
+		}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){
+				this.killText();
+				this.scoreText.setText("Miss");
+				game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
+				this.kill();
 		}
-	}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){
-			this.killText();
-			this.scoreText.setText("Miss");
-			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
-			this.kill();
 	}
 }
 
