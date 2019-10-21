@@ -25,6 +25,13 @@ Load.prototype = {
 		game.load.image('StoryScene2TextLeft1', 'Dialogue2.png');
 		game.load.image('StoryScene2TextRight1', 'Dialogue1.png');
 
+		//Play stage assets
+		game.load.image('rightArrow', 'rightArrow.png');
+		game.load.image('leftArrow', 'leftArrow.png');
+		game.load.image('downArrow', 'downArrow.png');
+		game.load.image('sheet', 'sheet.png');
+		game.load.spritesheet('guitar', 'guitarCharacter.png', 1200,1600);
+
 		//Load AUDIO assets
 		game.load.path = 'assets/audio/';
 
