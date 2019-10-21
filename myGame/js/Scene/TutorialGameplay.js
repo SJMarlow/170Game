@@ -22,6 +22,12 @@ TutorialGameplay.prototype = {
 		this.downButton = new Button(game , 80, 250, 'downArrow',1,'down');
 		game.add.existing(this.downButton);
 
+		//Add by Guanchen Liu
+		//Version1
+		//Add characters to the scene
+		this.guitar = new Character(game, 200, 450, 'guitar', 1, this.leftButton);
+		game.add.existing(this.guitar);
+
 		//Add a test bit for the game
 		//this.testBit1 = new Bit(game, 900, 70, 'leftArrow', 1, 'left', this.leftButton);
 		//game.add.existing(this.testBit1);
