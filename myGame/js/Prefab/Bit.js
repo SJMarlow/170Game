@@ -42,17 +42,20 @@ Bit.prototype.update = function(){
 		if(Math.abs(this.body.x - this.button.body.x) < 25){
 			this.killText();
 			this.scoreText.setText("Great");
+			this.button.feedback = 'Great';
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 			this.kill();
 
 		}else if(Math.abs(this.body.x - this.button.body.x) < 50){
 			this.killText();
 			this.scoreText.setText("Good");
+			this.button.feedback = 'Great';
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 			this.kill();
 		}else if(Math.abs(this.body.x - this.button.body.x) < 90){
 			this.killText();
 			this.scoreText.setText("Bad");
+			this.button.feedback = 'Bad';
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 			this.kill();
 		}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){
@@ -61,10 +64,18 @@ Bit.prototype.update = function(){
 				game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 				this.kill();
 		}
+	}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){
+			this.killText();
+			this.scoreText.setText("Miss");
+			this.button.feedback = 'Bad';
+			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
+			this.kill();
+
 	}
 }
 
 Bit.prototype.killText = function(){
 	this.scoreText.setText('',true);
+	this.button.feedback = '';
 	this.isKilled = true;
 }

@@ -24,6 +24,12 @@ TutorialGameplay.prototype = {
 		this.downButton = new Button(game , 80, 250, 'downArrow',1,'down');
 		game.add.existing(this.downButton);
 
+		//Add by Guanchen Liu
+		//Version1
+		//Add characters to the scene
+		this.guitar = new Character(game, 200, 450, 'guitar', 1, this.leftButton);
+		game.add.existing(this.guitar);
+
 		songSelector = config.songNum;	
 		music = game.add.audio(maps[songSelector].song, 1, false);
 		music.play();
@@ -31,6 +37,7 @@ TutorialGameplay.prototype = {
 		if(config.hitsound)
 			hitsound = game.add.audio('hitsound2', 1, false); // to help sync the music better 
 		let songBpm = maps[songSelector].bpm;
+
 		let noteVelocity = 250; // Hardcoded in Bit.js still. Just here for calcs right now.
 		let temp = maps[songSelector].notes.data;
 		let width = maps[songSelector].notes.width; // max # of notes for one lane

@@ -13,6 +13,7 @@ function Button(game, x, y, key, frame, dir) {
 	this.body.collideWorldBounds = false;
 	this.body.gravity.y = 0;
 	this.alpha = 0.1;
+	this.feedback = '';
 	this.cursors = game.input.keyboard.createCursorKeys();
 
 }
