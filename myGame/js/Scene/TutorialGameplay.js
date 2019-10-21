@@ -1,7 +1,9 @@
 var TutorialGameplay = function(game) {};
 TutorialGameplay.prototype = {
 	preload: function() {
-		
+		game.load.audio('120bpmTutorial', '120bpmTutorial.mp3')
+		game.load.audio('90bpmTutorial', '90bpmTutorial.mp3')
+		game.load.audio('hitsound2', 'hitsound2.mp3')
 	},
 	create: function() {
 		//Add by Guanchen Liu
@@ -28,21 +30,19 @@ TutorialGameplay.prototype = {
 		this.guitar = new Character(game, 200, 450, 'guitar', 1, this.leftButton);
 		game.add.existing(this.guitar);
 
-		//Add a test bit for the game
-		//this.testBit1 = new Bit(game, 900, 70, 'leftArrow', 1, 'left', this.leftButton);
-		//game.add.existing(this.testBit1);
-		//
-		//this.testBit2 = new Bit(game, 1100, 160, 'rightArrow', 1, 'right', this.rightButton);
-		//game.add.existing(this.testBit1);
-		//
-		//this.testBit3 = new Bit(game, 1500, 250, 'downArrow', 1, 'down', this.downButton);
-		//game.add.existing(this.testBit1);
-		let songBpm = 60;
+		songSelector = config.songNum;	
+		music = game.add.audio(maps[songSelector].song, 1, false);
+		music.play();
+		
+		if(config.hitsound)
+			hitsound = game.add.audio('hitsound2', 1, false); // to help sync the music better 
+		let songBpm = maps[songSelector].bpm;
+
 		let noteVelocity = 250; // Hardcoded in Bit.js still. Just here for calcs right now.
-		let temp = map.data;
-		let width = map.width; // max # of notes for one lane
-		let height = map.height; // # of lanes
-		let startOffset = 500;
+		let temp = maps[songSelector].notes.data;
+		let width = maps[songSelector].notes.width; // max # of notes for one lane
+		let height = maps[songSelector].notes.height; // # of lanes
+		let startOffset = maps[songSelector].offset;
 		let noteDistance = (noteVelocity/(2*((songBpm)/60)));
 		for(let i = 0; i<width;i++){ // lane 1
 			if(temp[i]==1){
