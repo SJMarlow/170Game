@@ -26,19 +26,20 @@ Bit.prototype = Object.create(Phaser.Sprite.prototype);
 Bit.prototype.constructor = Bit;
 
 Bit.prototype.update = function(){
-	if(this.button.alpha == 1 && !this.isKilled){
-		// Only keeping this to test the sync for music better later on/if we decide to have hitsounds later.
-		if(config.hitsound)
-				hitsound.play();
-		// Same goes for the commented-out section below:
-		/*if(Math.abs(this.body.x - this.button.body.x) < 2 && Math.abs(this.body.x - this.button.body.x) > -2){
+	if(Math.abs(this.body.x - this.button.body.x) < 2 && Math.abs(this.body.x - this.button.body.x) > -2){
 			this.killText();
-			
+			if(config.hitsound)
+				hitsound.play();
 			console.log(game.time.now)
 			this.scoreText.setText("Perfect");
-			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
-			this.kill();
-		}*/
+			//game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
+			//this.kill();
+	}
+	if(this.button.alpha == 1 && !this.isKilled){
+		// Only keeping this to test the sync for music better later on/if we decide to have hitsounds later.
+		
+		// Same goes for the commented-out section below:
+		
 		if(Math.abs(this.body.x - this.button.body.x) < 25){
 			this.killText();
 			this.scoreText.setText("Great");
