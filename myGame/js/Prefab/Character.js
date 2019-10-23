@@ -1,3 +1,6 @@
+//Add by Guanchen Liu
+//This prefab will create the character on play stage. 
+//Each character will be assigned to a specific, which passed by 'button' in constructor
 function Character(game, x, y, key, frame, button) {
 	Phaser.Sprite.call(this, game, x, y, key, frame);
 	this.anchor.set(0.5);

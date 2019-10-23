@@ -30,6 +30,9 @@ TutorialGameplay.prototype = {
 		this.guitar = new Character(game, 200, 450, 'guitar', 1, this.leftButton);
 		game.add.existing(this.guitar);
 
+		this.singer = new Character(game, 350, 450, 'singer', 1, this.rightButton);
+		game.add.existing(this.singer);
+
 		songSelector = config.songNum;	
 		music = game.add.audio(maps[songSelector].song, 1, false);
 		music.play();
