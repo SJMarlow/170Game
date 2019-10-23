@@ -25,6 +25,11 @@ Load.prototype = {
 		game.load.image('StoryScene2TextLeft1', 'Dialogue2.png');
 		game.load.image('StoryScene2TextRight1', 'Dialogue1.png');
 
+		//Ui for title screen
+		//Naming format: GameStateTitle ButtonName
+		game.load.image('TitleScreenStartButton', 'startbutton.png');
+		game.load.image('TitleScreenTitle', 'TitleHyperBeast.png');
+
 		//Play stage assets
 		game.load.image('rightArrow', 'rightArrow.png');
 		game.load.image('leftArrow', 'leftArrow.png');
