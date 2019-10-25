@@ -16,7 +16,7 @@ MainGameplay.prototype = {
 		this.sheet = game.add.sprite(0,25,'sheet');
 		this.sheet.scale.x = 1.2;
 		this.sheet.scale.y = 0.9;
-		config.songNum = 1;
+		config.songNum = 3;
 		Gameplay(game);
 		game.stage.backgroundColor = "#990021";
 		
