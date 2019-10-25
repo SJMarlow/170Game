@@ -5,13 +5,20 @@ function Character(game, x, y, key, frame, button) {
 	Phaser.Sprite.call(this, game, x, y, key, frame);
 	this.anchor.set(0.5);
 	game.physics.enable(this);
-	this.scale.x = 0.15;
-	this.scale.y = 0.15;
 	this.button = button;
-	this.animations.add('stand', [0, 1], 2, true);
-	this.animations.add('great', [3, 4], 2, true);
-	this.animations.add('bad', [2, 5], 2, true);
-
+	if(this.button.dir == 'down'){
+		this.scale.x = 0.09;
+		this.scale.y = 0.09;
+		this.animations.add('stand', [0], 2, true);
+		this.animations.add('great', [2], 2, true);
+		this.animations.add('bad', [1], 2, true);
+	}else{
+		this.scale.x = 0.15;
+		this.scale.y = 0.15;
+		this.animations.add('stand', [0, 1], 2, true);
+		this.animations.add('great', [3, 4], 2, true);
+		this.animations.add('bad', [2, 5], 2, true);
+	}
 }
 
 Character.prototype = Object.create(Phaser.Sprite.prototype);

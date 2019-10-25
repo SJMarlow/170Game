@@ -37,6 +37,8 @@ Load.prototype = {
 		game.load.image('sheet', 'sheet.png');
 		game.load.spritesheet('guitar', 'guitarCharacter.png', 1200, 1600);
 		game.load.spritesheet('singer', 'singerCharacter.png', 1200, 1600);
+		game.load.spritesheet('drumer', 'drumCharacter.png', 4000, 3000);
+
 
 		//Load AUDIO assets
 		game.load.path = 'assets/audio/';
