@@ -3,7 +3,7 @@ var config = {
     height: 600,
     renderer: Phaser.AUTO,
     antialias: false,
-	hitsound: false,
+	hitsound: true,
 	songNum:0 // Change to 0 or 1.
 }
 // I can clean this up more later on. 
@@ -13,14 +13,28 @@ maps[0] = {
 	songLocation:'./assets/test.json',
 	notes: [],
 	bpm: 120,
-	offset: 227,
+	offset: 205,
 }
 maps[1] = { // I believe that Guanchen found this, so I added it in as well.
 	song: '90bpmTutorial',
 	songLocation: './assets/test2.json', 
 	notes: [],
-	bpm: 180, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
-	offset: 125, // not the most fun thing to find...
+	bpm: 360, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
+	offset: 130, // not the most fun thing to find...
+}
+maps[2] = {
+	song: 'Cassetter_-_Neon_Towers_-_Cut',
+	songLocation: './assets/Tutorial.json', 
+	notes: [],
+	bpm: 232, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
+	offset: 92+600, // still not the most fun thing to find... and something keeps making it change
+}
+maps[3] = { // I believe that Guanchen found this, so I added it in as well.
+	song: 'The_Goondock_Saint_-_A_hole_in_the_sky_-_Cut',
+	songLocation: './assets/MainGame.json', 
+	notes: [],
+	bpm: 188, // 
+	offset: 170+600, // why...
 }
 for (let i = 0;i<maps.length;i++){
 	$.getJSON(maps[i].songLocation,function(data){
