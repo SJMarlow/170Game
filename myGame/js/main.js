@@ -34,7 +34,7 @@ maps[3] = { // I believe that Guanchen found this, so I added it in as well.
 	songLocation: './assets/MainGame.json', 
 	notes: [],
 	bpm: 376, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
-	offset: 130, // why...
+	offset: 170, // why...
 }
 for (let i = 0;i<maps.length;i++){
 	$.getJSON(maps[i].songLocation,function(data){
