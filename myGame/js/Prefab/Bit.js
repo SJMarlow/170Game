@@ -67,10 +67,9 @@ Bit.prototype.update = function(){
 				game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 				this.kill();
 		}
-	}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){ // it occasionally enters this twice. Not quite sure why.
+	}else if (this.button.body.x - this.body.x > 90 && !this.isKilled){
 			this.killText();
 			this.scoreText.setText("Miss");
-			//console.log("draxed");
 			this.button.feedback = 'Bad';
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.killText, this);
 			this.kill();
