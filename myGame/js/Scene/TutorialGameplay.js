@@ -15,6 +15,7 @@ TutorialGameplay.prototype = {
 		this.songStartOffset = 2000; // I'll have this handled better in the future.
 		this.songStarted = false;
 
+
 		//game.time.events.add(Phaser.Timer.SECOND * 2, Gameplay(game), this);
 		Gameplay(game); // GamePlay.js
 		game.stage.backgroundColor = "#412312";
