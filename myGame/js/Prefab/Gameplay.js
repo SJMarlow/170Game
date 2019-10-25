@@ -43,5 +43,6 @@ function Gameplay(game){
 		}
 		
 	}	
-	music.play();
+	
+	
 }	
