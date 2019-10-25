@@ -3,7 +3,7 @@ var config = {
     height: 600,
     renderer: Phaser.AUTO,
     antialias: false,
-	hitsound: true,
+	hitsound: false,
 	songNum:0 // Change to 0 or 1.
 }
 // I can clean this up more later on. 
@@ -27,14 +27,14 @@ maps[2] = {
 	songLocation: './assets/Tutorial.json', 
 	notes: [],
 	bpm: 232, // because it has 8th notes, I doubled the bpm. Don't have an implementation that handles that automatically yet :/
-	offset: 92+600, // still not the most fun thing to find... and something keeps making it change
+	offset: 92+350, // still not the most fun thing to find... and something keeps making it change
 }
 maps[3] = { // I believe that Guanchen found this, so I added it in as well.
 	song: 'The_Goondock_Saint_-_A_hole_in_the_sky_-_Cut',
 	songLocation: './assets/MainGame.json', 
 	notes: [],
 	bpm: 188, // 
-	offset: 170+600, // why...
+	offset: 170+610, // why...
 }
 for (let i = 0;i<maps.length;i++){
 	$.getJSON(maps[i].songLocation,function(data){
