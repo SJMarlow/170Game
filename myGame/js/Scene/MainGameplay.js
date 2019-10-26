@@ -31,7 +31,9 @@ MainGameplay.prototype = {
 			music.play();
 			this.songStarted = true;
 		}
-		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)||this.startTime+95000<game.time.now) // time for end of song is hardcoded for now
+		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)||this.startTime+95000<game.time.now){ // time for end of song is hardcoded for now
 			game.state.start('EndScreen');
+			music.stop();
+		}
 	}
 }
