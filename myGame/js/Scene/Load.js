@@ -5,6 +5,9 @@ Load.prototype = {
 		//Load IMAGE Assets
 		game.load.path = 'assets/img/';
 
+		//instructions splash assest
+		game.load.image('instructions', 'Instructions.png');
+
 		//tutorial assets
 		game.load.image('rightArrow', 'rightArrow.png');
 		game.load.image('leftArrow', 'leftArrow.png');
